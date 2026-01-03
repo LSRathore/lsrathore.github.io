@@ -8,10 +8,10 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
+    padding-top: 70px; /* desktop header height */
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
-    padding-top: 80px; /* space for fixed header (desktop) */
 }
 
 /* ===============================
@@ -26,13 +26,12 @@ body {
     z-index: 1000;
 }
 
+/* Desktop nav */
 .nav-bar {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 30px;
-    padding: 14px 20px;
-    flex-wrap: wrap; /* allows wrapping */
+    padding: 15px 20px;
 }
 
 .nav-bar a {
@@ -40,7 +39,6 @@ body {
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
-    padding: 6px 10px;
     transition: color 0.3s ease;
 }
 
@@ -49,7 +47,22 @@ body {
 }
 
 /* ===============================
-   Profile Header (Home page)
+   Hamburger Menu (Hidden on Desktop)
+   =============================== */
+#nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    font-size: 2rem;
+    color: #ecf0f1;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+/* ===============================
+   Profile Header
    =============================== */
 .profile-header {
     display: flex;
@@ -120,6 +133,17 @@ ul {
 }
 
 /* ===============================
+   Footer
+   =============================== */
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/* ===============================
    CV Button
    =============================== */
 .cv-button {
@@ -140,39 +164,44 @@ ul {
 }
 
 /* ===============================
-   Footer
-   =============================== */
-footer {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
-}
-
-/* ===============================
-   Responsive (Mobile Fix)
+   MOBILE FIXES (IMPORTANT)
    =============================== */
 @media (max-width: 768px) {
 
-    body {
-        padding-top: 160px; /* IMPORTANT: more space for stacked nav */
+    /* Show hamburger */
+    .nav-toggle-label {
+        display: block;
     }
 
+    /* Stack header cleanly */
+    .site-header {
+        padding-bottom: 10px;
+    }
+
+    /* Hide nav by default */
     .nav-bar {
+        display: none;
         flex-direction: column;
+        align-items: center;
         gap: 10px;
-        padding: 12px;
+        padding: 10px 0;
+        background-color: #2c3e50;
     }
 
-    .nav-bar a {
-        font-size: 0.95rem;
+    /* Show nav when hamburger clicked */
+    #nav-toggle:checked + .nav-toggle-label + .nav-bar {
+        display: flex;
     }
 
+    /* Increase body padding so content NEVER overlaps */
+    body {
+        padding-top: 60px;
+    }
+
+    /* Profile layout */
     .profile-header {
         flex-direction: column;
         text-align: center;
-        padding: 30px 20px;
     }
 }
 
