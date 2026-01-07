@@ -76,14 +76,27 @@ body {
     margin: 40px auto;
 }
 
+/* .profile-pic { */
+    /* width: 220px; */
+    /* height: 220px; */
+    /* object-fit: cover; */
+    /* border-radius: 12px; */
+    /* border: 5px solid #2c3e50; */
+    /* box-shadow: 0 6px 15px rgba(0,0,0,0.25); */
+/* } */
+
 .profile-pic {
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
+    width: 250px;          /* keeps it compact */
+    height: auto;          /* 🔑 prevents facial distortion */
+    max-height: 300px;     /* prevents it from getting tall */
+    object-fit: contain;   /* shows full image correctly */
     border-radius: 12px;
     border: 5px solid #2c3e50;
     box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    display: block;
 }
+
+
 
 .profile-info h1 {
     margin: 0;
